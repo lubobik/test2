@@ -4,6 +4,7 @@ import at.fhj.iit.base.Drink;
 import at.fhj.iit.base.Liquid;
 import at.fhj.iit.base.SimpleDrink;
 import at.fhj.iit.custom.cashRegister.CashRegisterManagement;
+import at.fhj.iit.custom.cashRegister.DrinkSale;
 import at.fhj.iit.custom.cashRegister.Operator;
 import at.fhj.iit.custom.drink.Cocktail;
 import at.fhj.iit.custom.drink.LongDrink;
@@ -42,127 +43,128 @@ public final class Main {
      * @param args Command line parameters
      */
     public static void main(String[] args) {
-<span class="fc" id="L45">        printBaseDemonstration();</span>
-<span class="fc" id="L46">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L46">        printBaseDemonstration();</span>
+<span class="fc" id="L47">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L48">        printSoftLiquidDemonstration();</span>
-<span class="fc" id="L49">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L49">        printSoftLiquidDemonstration();</span>
+<span class="fc" id="L50">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L51">        printTeaDemonstration();</span>
-<span class="fc" id="L52">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L52">        printTeaDemonstration();</span>
+<span class="fc" id="L53">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L54">        printCocktailDemonstration();</span>
-<span class="fc" id="L55">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L55">        printCocktailDemonstration();</span>
+<span class="fc" id="L56">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L57">        printSmoothieDemonstration();</span>
-<span class="fc" id="L58">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L58">        printSmoothieDemonstration();</span>
+<span class="fc" id="L59">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L60">        printLongDrinkDemonstration();</span>
-<span class="fc" id="L61">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L61">        printLongDrinkDemonstration();</span>
+<span class="fc" id="L62">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L63">        printCashRegisterManagementDemonstration();</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L64">        printCashRegisterManagementDemonstration();</span>
+<span class="fc" id="L65">    }</span>
 
     /**
      * Demonstrates the base implementation (&lt;code&gt;Liquid&lt;/code&gt; and &lt;code&gt;SimpleDrink&lt;/code&gt;).
      */
     private static void printBaseDemonstration() {
-<span class="fc" id="L70">        Liquid l = new Liquid(&quot;Wein&quot;, 0.125, 13);</span>
-<span class="fc" id="L71">        System.out.println(l.getName());</span>
-<span class="fc" id="L72">        System.out.println(l.getVolume());</span>
+<span class="fc" id="L71">        Liquid l = new Liquid(&quot;Wein&quot;, 0.125, 13);</span>
+<span class="fc" id="L72">        System.out.println(l.getName());</span>
+<span class="fc" id="L73">        System.out.println(l.getVolume());</span>
 
-<span class="fc" id="L74">        Drink redWine = new SimpleDrink(&quot;Rotwein&quot;, l);</span>
-<span class="fc" id="L75">        System.out.println(redWine);</span>
+<span class="fc" id="L75">        Drink redWine = new SimpleDrink(&quot;Rotwein&quot;, l);</span>
+<span class="fc" id="L76">        System.out.println(redWine);</span>
 
-<span class="fc" id="L77">        DrinkUtils.printSeparator();</span>
-<span class="fc" id="L78">        System.out.println(&quot;END OF ALREADY SPECIFIED CODE&quot;);</span>
-<span class="fc" id="L79">    }</span>
+<span class="fc" id="L78">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L79">        System.out.println(&quot;END OF ALREADY SPECIFIED CODE&quot;);</span>
+<span class="fc" id="L80">    }</span>
 
     /**
      * Demonstrates the &lt;code&gt;SoftLiquid&lt;/code&gt; implementation.
      */
     private static void printSoftLiquidDemonstration() {
-<span class="fc" id="L85">        SoftLiquid softLiquid = new SoftLiquid(&quot;Orange juice&quot;, 0.5, Brand.COCA_COLA);</span>
-<span class="fc" id="L86">        System.out.println(softLiquid);</span>
-<span class="fc" id="L87">    }</span>
+<span class="fc" id="L86">        SoftLiquid softLiquid = new SoftLiquid(&quot;Orange juice&quot;, 0.5, Brand.COCA_COLA);</span>
+<span class="fc" id="L87">        System.out.println(softLiquid);</span>
+<span class="fc" id="L88">    }</span>
 
     /**
      * Demonstrates the &lt;code&gt;Tea&lt;/code&gt; implementation.
      */
     private static void printTeaDemonstration() {
-<span class="fc" id="L93">        Liquid water = new Liquid(&quot;Water&quot;, 0.3, 0);</span>
-<span class="fc" id="L94">        Drink earlyGrey = new Tea(&quot;Early Grey&quot;, water, true, true);</span>
-<span class="fc" id="L95">        System.out.println(earlyGrey);</span>
-<span class="fc" id="L96">    }</span>
+<span class="fc" id="L94">        Liquid water = new Liquid(&quot;Water&quot;, 0.3, 0);</span>
+<span class="fc" id="L95">        Drink earlyGrey = new Tea(&quot;Early Grey&quot;, water, true, true);</span>
+<span class="fc" id="L96">        System.out.println(earlyGrey);</span>
+<span class="fc" id="L97">    }</span>
 
     /**
      * Demonstrates the &lt;code&gt;Cocktail&lt;/code&gt; implementation.
      */
     private static void printCocktailDemonstration() {
-<span class="fc" id="L102">        List&lt;Liquid&gt; maiTaiLiquids = List.of(</span>
+<span class="fc" id="L103">        List&lt;Liquid&gt; maiTaiLiquids = List.of(</span>
                 new Liquid(&quot;Rum&quot;, 2.0, 40.0),
                 new Liquid(&quot;Cointreau&quot;, 0.5, 35.0),
                 new Liquid(&quot;Orgeat Syrup&quot;, 0.5, 0.0),
                 new Liquid(&quot;Lime Juice&quot;, 0.5, 0.0),
                 new Liquid(&quot;Water&quot;, 2, 0.0)
         );
-<span class="fc" id="L109">        Cocktail maiTai = new Cocktail(&quot;Mai Tai&quot;, maiTaiLiquids);</span>
-<span class="fc" id="L110">        System.out.println(maiTai);</span>
-<span class="fc" id="L111">    }</span>
+<span class="fc" id="L110">        Cocktail maiTai = new Cocktail(&quot;Mai Tai&quot;, maiTaiLiquids);</span>
+<span class="fc" id="L111">        System.out.println(maiTai);</span>
+<span class="fc" id="L112">    }</span>
 
     /**
      * Demonstrates the &lt;code&gt;Smoothie&lt;/code&gt; implementation.
      */
     private static void printSmoothieDemonstration() {
-<span class="fc" id="L117">        Liquid milk = new Liquid(&quot;Milk&quot;, 0.5, 0);</span>
-<span class="fc" id="L118">        List&lt;Fruit&gt; smoothieFruits = List.of(</span>
+<span class="fc" id="L118">        Liquid milk = new Liquid(&quot;Milk&quot;, 0.5, 0);</span>
+<span class="fc" id="L119">        List&lt;Fruit&gt; smoothieFruits = List.of(</span>
                 new Fruit(&quot;Strawberry&quot;),
                 new Fruit(&quot;Banana&quot;),
                 new Fruit(&quot;Ananas&quot;)
         );
 
-<span class="fc" id="L124">        Smoothie milkshake = new Smoothie(&quot;Milkshake&quot;, milk, smoothieFruits, false);</span>
-<span class="fc" id="L125">        System.out.println(milkshake);</span>
-<span class="fc" id="L126">    }</span>
+<span class="fc" id="L125">        Smoothie milkshake = new Smoothie(&quot;Milkshake&quot;, milk, smoothieFruits, false);</span>
+<span class="fc" id="L126">        System.out.println(milkshake);</span>
+<span class="fc" id="L127">    }</span>
 
     /**
      * Demonstrates the &lt;code&gt;LongDrink&lt;/code&gt; implementation.
      */
     private static void printLongDrinkDemonstration() {
-<span class="fc" id="L132">        Liquid vodka = new Liquid(&quot;Vodka&quot;, 0.3, 40);</span>
-<span class="fc" id="L133">        SoftLiquid filler = new SoftLiquid(&quot;Cranberry Juice&quot;, 0.5, Brand.PEPSI);</span>
-<span class="fc" id="L134">        LongDrink vodkaCranberry = new LongDrink(&quot;Vodka Cranberry&quot;, vodka, filler);</span>
-<span class="fc" id="L135">        System.out.println(vodkaCranberry);</span>
-<span class="fc" id="L136">    }</span>
+<span class="fc" id="L133">        Liquid vodka = new Liquid(&quot;Vodka&quot;, 0.3, 40);</span>
+<span class="fc" id="L134">        SoftLiquid filler = new SoftLiquid(&quot;Cranberry Juice&quot;, 0.5, Brand.PEPSI);</span>
+<span class="fc" id="L135">        LongDrink vodkaCranberry = new LongDrink(&quot;Vodka Cranberry&quot;, vodka, filler);</span>
+<span class="fc" id="L136">        System.out.println(vodkaCranberry);</span>
+<span class="fc" id="L137">    }</span>
 
     /**
      * Demonstrates the &lt;code&gt;CashRegisterManagement&lt;/code&gt; implementation.
      */
     private static void printCashRegisterManagementDemonstration() {
         CashRegisterManagement cashRegister =
-<span class="fc" id="L143">                CashRegisterRandomizer.generateRandomTestCashRegister();</span>
-<span class="fc" id="L144">        LocalDate todayDate = LocalDate.now();</span>
-<span class="fc" id="L145">        Operator operator = CashRegisterRandomizer.retrieveRandomOperator();</span>
+<span class="fc" id="L144">                CashRegisterRandomizer.generateRandomTestCashRegister();</span>
+<span class="fc" id="L145">        LocalDate todayDate = LocalDate.now();</span>
+<span class="fc" id="L146">        Operator operator = CashRegisterRandomizer.retrieveRandomOperator();</span>
+<span class="fc" id="L147">        cashRegister.addDrinkSale(new DrinkSale(new Tea(&quot;tea&quot;, new Liquid(&quot;water&quot;, 1.0,0),true,true), new Operator(&quot;Peter&quot;,&quot;Müller&quot;)));</span>
 
-<span class="fc" id="L147">        cashRegister.printAlcoholicIntense();</span>
-<span class="fc" id="L148">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L149">        cashRegister.printAlcoholicIntense();</span>
+<span class="fc" id="L150">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L150">        cashRegister.printNonAlcoholic();</span>
-<span class="fc" id="L151">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L152">        cashRegister.printNonAlcoholic();</span>
+<span class="fc" id="L153">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L153">        cashRegister.printAlcoholicWeak();</span>
-<span class="fc" id="L154">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L155">        cashRegister.printAlcoholicWeak();</span>
+<span class="fc" id="L156">        DrinkUtils.printSeparator();</span>
 
-<span class="fc" id="L156">        cashRegister.printTotal(todayDate);</span>
-<span class="fc" id="L157">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L158">        cashRegister.printTotal(todayDate);</span>
+<span class="fc" id="L159">        DrinkUtils.printSeparator();</span>
         //prints the sum of all sales (is only only the same as the above cos all sales get a timestamp on creation
-<span class="fc" id="L159">        cashRegister.printTotal(null);</span>
-<span class="fc" id="L160">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L161">        cashRegister.printTotal(null);</span>
+<span class="fc" id="L162">        DrinkUtils.printSeparator();</span>
         //prints the sum of every operator for a specific day
-<span class="fc" id="L162">        cashRegister.printOperators(todayDate,&quot;all&quot;);</span>
-<span class="fc" id="L163">        DrinkUtils.printSeparator();</span>
+<span class="fc" id="L164">        cashRegister.printOperators(todayDate,&quot;all&quot;);</span>
+<span class="fc" id="L165">        DrinkUtils.printSeparator();</span>
         //prints only the sum of a random operator for all days
-<span class="fc" id="L165">        cashRegister.printOperators(null,operator.getFullName());</span>
-<span class="fc" id="L166">    }</span>
+<span class="fc" id="L167">        cashRegister.printOperators(null,&quot;Peter Müller&quot;);</span>
+<span class="fc" id="L168">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

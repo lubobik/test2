@@ -12,7 +12,7 @@ Drinks,at.fhj.iit.custom.drink,Tea,0,99,0,12,0,21,0,14,0,8
 Drinks,at.fhj.iit.custom.drink,Cocktail,0,146,0,10,0,34,0,18,0,13
 Drinks,at.fhj.iit.custom.drink,Smoothie,0,123,0,12,0,23,0,12,0,6
 Drinks,at.fhj.iit.exception,ValidationException,0,4,0,0,0,2,0,1,0,1
-Drinks,at.fhj.iit,Main,0,209,0,0,0,60,0,8,0,8
+Drinks,at.fhj.iit,Main,0,232,0,0,0,61,0,8,0,8
 Drinks,at.fhj.iit.custom.cashRegister,DrinkSale,0,29,0,0,0,10,0,5,0,5
-Drinks,at.fhj.iit.custom.cashRegister,CashRegisterManagement,11,268,2,26,3,80,2,36,0,24
+Drinks,at.fhj.iit.custom.cashRegister,CashRegisterManagement,0,279,0,28,0,83,0,38,0,24
 Drinks,at.fhj.iit.custom.cashRegister,Operator,0,15,0,0,0,5,0,2,0,2
