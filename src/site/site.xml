@@ -1,0 +1,45 @@
+<project name="Drinks project by Bobik and Steirer">
+    <publishDate position="right"/>
+    <version position="left"/>
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.9</version>
+    </skin>
+    <custom>
+        <fluidoSkin>
+            <topBarEnabled>true</topBarEnabled>
+            <topBarContainerStyle>width: 70%;</topBarContainerStyle>
+            <topBarIcon>
+                <name>Drinks</name>
+                <alt>Drinks</alt>
+                <src>/images/icon.png</src>
+                <href>/index.html</href>
+            </topBarIcon>
+            <sideBarEnabled>false</sideBarEnabled>
+            <gitHub>
+                <projectId>lubobik/Konf_B20_Bobik_Steirer</projectId>
+                <ribbonOrientation>left</ribbonOrientation>
+                <ribbonColor>gray</ribbonColor>
+            </gitHub>
+        </fluidoSkin>
+    </custom>
+    <body>
+        <menu name="Overview">
+            <item name="Introduction" href="index.html"/>
+            <item name="Tutorial" href="tutorial.html"/>
+            <item name="Design decisions" href="design_decisions.html"/>
+            <item name="Test coverage info" href="test_coverage_info.html"/>
+            <item name="README" href="README.html"/>
+        </menu>
+        <menu ref="reports"/>
+        <menu ref="parent"/>
+        <menu ref="modules"/>
+    </body>
+    <poweredBy>
+        <logo name="FH Campus 02"
+              href="https://www.campus02.at"
+              img="./images/campus02_logo.jpg"
+              width="150px"/>
+    </poweredBy>
+</project>
