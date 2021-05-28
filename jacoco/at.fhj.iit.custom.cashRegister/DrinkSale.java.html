@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DrinkSale.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit.custom.cashRegister</a> &gt; <span class="el_source">DrinkSale.java</span></div><h1>DrinkSale.java</h1><pre class="source lang-java linenums">package at.fhj.iit.custom.cashRegister;
+
+import at.fhj.iit.base.Drink;
+import at.fhj.iit.util.DrinkUtils;
+
+import java.time.LocalDateTime;
+
+/**
+ * Represent a sale of a particular drink,
+ * including information about price,
+ * the operator who fulfilled the sale and
+ * the timestamp stating when the sale happened.
+ *
+ * @author Andreas Steirer
+ * @version 3.0
+ */
+public class DrinkSale {
+
+    /**
+     * The &lt;code&gt;Drink&lt;/code&gt; included in the sale.
+     */
+    private final Drink drink;
+
+    /**
+     * The price of the sale.
+     */
+    private final double price;
+
+    /**
+     * The &lt;code&gt;Operator&lt;/code&gt; who achieved the sale.
+     */
+    private final Operator operator;
+
+    /**
+     * The time and date on which the sale happened.
+     */
+    private final LocalDateTime soldAt;
+
+    /**
+     * Initialises a new &lt;code&gt;DrinkSale&lt;/code&gt; object,
+     * with its corresponding &lt;code&gt;Drink&lt;/code&gt;,
+     * &lt;code&gt;Operator&lt;/code&gt;, timestamp and price values.
+     *
+     * @param drink    the &lt;code&gt;Drink&lt;/code&gt; included in the sale
+     * @param operator the &lt;code&gt;Operator&lt;/code&gt; who achieved the sale
+     */
+<span class="fc" id="L47">    public DrinkSale(Drink drink, Operator operator) {</span>
+<span class="fc" id="L48">        this.drink = drink;</span>
+<span class="fc" id="L49">        this.operator = operator;</span>
+<span class="fc" id="L50">        this.soldAt = LocalDateTime.now();</span>
+<span class="fc" id="L51">        this.price = DrinkUtils.roundToTwoDecimals(drink.calculatePrice());</span>
+<span class="fc" id="L52">    }</span>
+
+    /**
+     * Retrieves information about the price of the sale.
+     *
+     * @return the calculated price of the particular &lt;code&gt;Drink&lt;/code&gt;.
+     */
+    public double getPrice() {
+<span class="fc" id="L60">        return price;</span>
+    }
+
+    /**
+     * Retrieves information about the &lt;code&gt;Operator&lt;/code&gt; who achieved the sale.
+     *
+     * @return the &lt;code&gt;Operator&lt;/code&gt; who achieved the sale
+     */
+    public Operator getOperator() {
+<span class="fc" id="L69">        return operator;</span>
+    }
+
+    /**
+     * Retrieves information about the time and date on which the sale happened.
+     *
+     * @return the &lt;code&gt;LocalDateTime&lt;/code&gt; on which the sale happened
+     */
+    public LocalDateTime getSoldAt() {
+<span class="fc" id="L78">        return soldAt;</span>
+    }
+
+    /**
+     * Retrieves information about the &lt;code&gt;Drink&lt;/code&gt; included in the sale.
+     *
+     * @return the &lt;code&gt;Drink&lt;/code&gt; of the sale
+     */
+    public Drink getDrink() {
+<span class="fc" id="L87">        return drink;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

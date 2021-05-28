@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SimpleDrink.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit.base</a> &gt; <span class="el_source">SimpleDrink.java</span></div><h1>SimpleDrink.java</h1><pre class="source lang-java linenums">package at.fhj.iit.base;
+
+/**
+ * Represents a &lt;code&gt;SimpleDrink&lt;/code&gt;
+ * with a &lt;code&gt;Liquid&lt;/code&gt; which can be used in drinks.
+ *
+ * @author Michael Ulm
+ * @author Christian Hofer
+ * @author Andreas Steirer
+ * @version 3.0
+ * @see Drink
+ * @since 1.0
+ */
+public class SimpleDrink extends Drink {
+
+    /**
+     * A single &lt;code&gt;Liquid&lt;/code&gt; of the &lt;code&gt;Drink&lt;/code&gt;.
+     */
+    protected Liquid liquid;
+
+    /**
+     * Creates a &lt;code&gt;SimpleDrink&lt;/code&gt; object with given name and &lt;code&gt;Liquid&lt;/code&gt;.
+     *
+     * @param name   name of &lt;code&gt;Drink&lt;/code&gt;
+     * @param liquid only one &lt;code&gt;Liquid&lt;/code&gt; in &lt;code&gt;Drink&lt;/code&gt;,
+     *               because it's a &lt;code&gt;SimpleDrink&lt;/code&gt; and not e.g. a &lt;code&gt;Cocktail&lt;/code&gt;
+     */
+    public SimpleDrink(String name, Liquid liquid) {
+<span class="fc" id="L29">        super(name);</span>
+<span class="fc" id="L30">        this.liquid = liquid;</span>
+<span class="fc" id="L31">    }</span>
+
+    /**
+     * Returns volume of the included &lt;code&gt;Liquid&lt;/code&gt;.
+     *
+     * @return the volume of drink in litre
+     */
+    @Override
+    public double getVolume() {
+<span class="fc" id="L40">        return liquid.getVolume();</span>
+    }
+
+    /**
+     * Returns alcohol volume percent of the included &lt;code&gt;Liquid&lt;/code&gt;.
+     *
+     * @return alcohol volume percent
+     */
+    @Override
+    public double getAlcoholPercent() {
+<span class="fc" id="L50">        return liquid.getAlcoholPercent();</span>
+    }
+
+    /**
+     * Gives information if &lt;code&gt;Drink&lt;/code&gt; is alcoholic or not.
+     *
+     * @return true when alcoholic liquids are present, otherwise false
+     */
+    @Override
+    public boolean isAlcoholic() {
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        return liquid.getAlcoholPercent() &gt; 0;</span>
+    }
+
+    /**
+     * Formatted output of a &lt;code&gt;SimpleDrink&lt;/code&gt; object.
+     *
+     * @return the String representation of the object
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L70">        return &quot;Simple Drink called &quot; + name + &quot; with &quot; + liquid.getAlcoholPercent() + &quot; percent alcohol by volume&quot;;</span>
+    }
+
+    /**
+     * Calculates the price of the &lt;code&gt;Drink&lt;/code&gt;,
+     * based on its ingredients and specialities.
+     *
+     * @return the calculated price of a specific &lt;code&gt;Drink&lt;/code&gt;
+     */
+    @Override
+    public double calculatePrice() {
+<span class="fc" id="L81">        return getVolume() * (1.0 + (getAlcoholPercent() / 100.0));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

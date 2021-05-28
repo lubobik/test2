@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cocktail.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit.custom.drink</a> &gt; <span class="el_source">Cocktail.java</span></div><h1>Cocktail.java</h1><pre class="source lang-java linenums">package at.fhj.iit.custom.drink;
+
+import at.fhj.iit.base.Drink;
+import at.fhj.iit.base.Liquid;
+import at.fhj.iit.exception.ValidationException;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+/**
+ * Describes a &lt;code&gt;Cocktail&lt;/code&gt; object (with data access)
+ * and offers manipulation options.
+ *
+ * @author Andreas Steirer
+ * @version 3.0
+ * @see Drink
+ * @since 1.0
+ */
+public class Cocktail extends Drink {
+
+    /**
+     * All &lt;code&gt;Liquid&lt;/code&gt;s included in the &lt;code&gt;Cocktail&lt;/code&gt;.
+     */
+    private final List&lt;Liquid&gt; liquids;
+
+    /**
+     * Creates a &lt;code&gt;Cocktail&lt;/code&gt; object with
+     * a given name and some included liquids.
+     *
+     * @param name name of the drink
+     */
+    public Cocktail(String name, List&lt;Liquid&gt; liquids) {
+<span class="fc" id="L35">        super(name);</span>
+<span class="fc" id="L36">        verifyLiquidAmount(liquids);</span>
+<span class="fc" id="L37">        this.liquids = new ArrayList&lt;&gt;(liquids);</span>
+<span class="fc" id="L38">    }</span>
+
+    /**
+     * Checks if the list of &lt;code&gt;Liquid&lt;/code&gt;s is empty.
+     * If so, throws a &lt;code&gt;ValidationException&lt;/code&gt;.
+     *
+     * @param liquids which should be checked
+     * @throws ValidationException if the list ist empty
+     */
+    private void verifyLiquidAmount(List&lt;Liquid&gt; liquids) {
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (liquids.isEmpty())</span>
+<span class="fc" id="L49">            throw new ValidationException(&quot;A cocktail needs at least one liquid.&quot;);</span>
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * Returns the sum of included &lt;code&gt;Liquid&lt;/code&gt;s in liters.
+     *
+     * @return total volume in liters
+     */
+    @Override
+    public double getVolume() {
+<span class="fc" id="L59">        return liquids</span>
+<span class="fc" id="L60">                .stream()</span>
+<span class="fc" id="L61">                .mapToDouble(Liquid::getVolume)</span>
+<span class="fc" id="L62">                .sum();</span>
+    }
+
+    /**
+     * Retrieves the total alcohol volume
+     * of the &lt;code&gt;Cocktail&lt;/code&gt; in percent.
+     *
+     * @return alcohol volume percent
+     */
+    @Override
+    public double getAlcoholPercent() {
+<span class="fc" id="L73">        return (getAlcoholVolume() / getVolume()) * 100.0;</span>
+    }
+
+    /**
+     * Retrieves the total alcohol volume of the &lt;code&gt;Cocktail&lt;/code&gt;.
+     *
+     * @return alcohol volume in liters
+     */
+    public double getAlcoholVolume() {
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        return isAlcoholic() ?</span>
+                liquids
+<span class="fc" id="L84">                        .stream()</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">                        .filter(liquid -&gt; liquid.getAlcoholPercent() &gt; 0)</span>
+<span class="fc" id="L86">                        .mapToDouble(liquid -&gt; (liquid.getVolume() * (liquid.getAlcoholPercent() / 100)))</span>
+<span class="fc" id="L87">                        .sum()</span>
+<span class="fc" id="L88">                : 0.0;</span>
+    }
+
+    /**
+     * States if the &lt;code&gt;Cocktail&lt;/code&gt; is alcoholic or not.
+     *
+     * @return true when alcoholic &lt;code&gt;Liquid&lt;/code&gt;s are present, otherwise false
+     */
+    @Override
+    public boolean isAlcoholic() {
+<span class="fc" id="L98">        return liquids</span>
+<span class="fc" id="L99">                .stream()</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">                .anyMatch(liquid -&gt; liquid.getAlcoholPercent() &gt; 0);</span>
+    }
+
+    /**
+     * Updates the passed &lt;code&gt;Liquid&lt;/code&gt; within the list if it exists.
+     *
+     * @param liquid  which should be changed within the list
+     * @param updater function which is responsible for value manipulation / update
+     */
+    public void updateLiquid(Liquid liquid, Consumer&lt;Liquid&gt; updater) {
+<span class="fc" id="L110">        int foundIndex = liquids.indexOf(liquid);</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        if (foundIndex != -1) {</span>
+<span class="fc" id="L112">            liquids.set(foundIndex, liquid);</span>
+<span class="fc" id="L113">            updater.accept(liquid);</span>
+        }
+<span class="fc" id="L115">    }</span>
+
+    /**
+     * Getter for &lt;code&gt;Liquid&lt;/code&gt; list
+     *
+     * @return all included &lt;code&gt;Liquid&lt;/code&gt;s
+     */
+    public List&lt;Liquid&gt; getLiquids() {
+<span class="fc" id="L123">        return liquids;</span>
+    }
+
+    /**
+     * Formatted output of a &lt;code&gt;Cocktail&lt;/code&gt; object.
+     *
+     * @return the String representation of the object
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L133">        String formattedLiquidNames = liquids</span>
+<span class="fc" id="L134">                .stream()</span>
+<span class="fc" id="L135">                .map(Liquid::getName)</span>
+<span class="fc" id="L136">                .collect(Collectors.joining(&quot;, &quot;));</span>
+<span class="fc" id="L137">        String totalAlcoholPercentage = String.format(&quot;%.2f&quot;, getAlcoholPercent());</span>
+
+<span class="fc" id="L139">        return &quot;The '&quot; + name + &quot;' includes following ingredients\n[&quot; +</span>
+                formattedLiquidNames + &quot;] with a total alcohol percentage of &quot; + totalAlcoholPercentage + &quot;%.&quot;;
+    }
+
+    /**
+     * Calculates the price of the &lt;code&gt;Drink&lt;/code&gt;,
+     * based on its ingredients and specialities.
+     *
+     * @return the calculated price of a specific &lt;code&gt;Drink&lt;/code&gt;
+     */
+    @Override
+    public double calculatePrice() {
+<span class="fc" id="L151">        return getVolume() * (1.0 + (getAlcoholPercent() / 100.0)) * this.liquids.size();</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

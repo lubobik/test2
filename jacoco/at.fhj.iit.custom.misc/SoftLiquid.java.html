@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SoftLiquid.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit.custom.misc</a> &gt; <span class="el_source">SoftLiquid.java</span></div><h1>SoftLiquid.java</h1><pre class="source lang-java linenums">package at.fhj.iit.custom.misc;
+
+import at.fhj.iit.base.Liquid;
+
+/**
+ * Mainly used as a mixing fluid.
+ * Describes a &lt;code&gt;SoftLiquid&lt;/code&gt; object (with data access)
+ * and offers manipulation options.
+ *
+ * @author Andreas Steirer
+ * @version 3.0
+ * @see Liquid
+ * @since 1.0
+ */
+public class SoftLiquid extends Liquid {
+
+    /**
+     * The particular &lt;code&gt;Brand&lt;/code&gt; of
+     * the &lt;code&gt;SoftLiquid&lt;/code&gt; implementation.
+     */
+    protected Brand brand;
+
+    /**
+     * Creates a new &lt;code&gt;SoftLiquid&lt;/code&gt; with given name, volume and brand.
+     *
+     * @param name   a name of a soft drink
+     * @param volume a volume of a soft drink
+     * @param brand  a &lt;code&gt;Brand&lt;/code&gt; of a soft drink
+     */
+    public SoftLiquid(String name, double volume, Brand brand) {
+<span class="fc" id="L31">        super(name, volume, 0.0);</span>
+<span class="fc" id="L32">        this.brand = brand;</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * Retrieves the name of the &lt;code&gt;SoftLiquid&lt;/code&gt;.
+     *
+     * @return the name of &lt;code&gt;SoftLiquid&lt;/code&gt;
+     */
+    @Override
+    public String getName() {
+<span class="fc" id="L42">        return super.getName();</span>
+    }
+
+    /**
+     * Sets the name of the &lt;code&gt;SoftLiquid&lt;/code&gt;.
+     */
+    @Override
+    public void setName(String name) {
+<span class="fc" id="L50">        super.setName(name);</span>
+<span class="fc" id="L51">    }</span>
+
+    /**
+     * Retrieves the volume of the &lt;code&gt;SoftLiquid&lt;/code&gt;.
+     *
+     * @return the volume of &lt;code&gt;SoftLiquid&lt;/code&gt;
+     */
+    @Override
+    public double getVolume() {
+<span class="fc" id="L60">        return super.getVolume();</span>
+    }
+
+    /**
+     * Sets the volume of the &lt;code&gt;SoftLiquid&lt;/code&gt;.
+     */
+    @Override
+    public void setVolume(double volume) {
+<span class="fc" id="L68">        super.setVolume(volume);</span>
+<span class="fc" id="L69">    }</span>
+
+    /**
+     * Returns the &lt;code&gt;Brand&lt;/code&gt; of the soft drink.
+     *
+     * @return the &lt;code&gt;Brand&lt;/code&gt; enumeration of the soft drink
+     */
+    public Brand getBrand() {
+<span class="fc" id="L77">        return brand;</span>
+    }
+
+    /**
+     * Setter for &lt;code&gt;Brand&lt;/code&gt; enumeration
+     *
+     * @param brand the new &lt;code&gt;Brand&lt;/code&gt; value
+     */
+    public void setBrand(Brand brand) {
+<span class="fc" id="L86">        this.brand = brand;</span>
+<span class="fc" id="L87">    }</span>
+
+    /**
+     * Formatted output for a &lt;code&gt;SoftLiquid&lt;/code&gt;.
+     *
+     * @return the String representation of the object
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L96">        return &quot;The SoftLiquid '&quot; + getName() + &quot;' is manufactured by '&quot; + brand + &quot;' and got a standard volume of &quot; + getVolume() + &quot; liters.&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

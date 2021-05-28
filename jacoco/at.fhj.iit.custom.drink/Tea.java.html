@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tea.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Drinks</a> &gt; <a href="index.source.html" class="el_package">at.fhj.iit.custom.drink</a> &gt; <span class="el_source">Tea.java</span></div><h1>Tea.java</h1><pre class="source lang-java linenums">package at.fhj.iit.custom.drink;
+
+import at.fhj.iit.base.Drink;
+import at.fhj.iit.base.Liquid;
+
+/**
+ * Describes a &lt;code&gt;Tea&lt;/code&gt; object.
+ *
+ * @author Lukas Bobik
+ * @author Andreas Steirer
+ * @version 3.0
+ * @see Drink
+ * @since 1.0
+ */
+public class Tea extends Drink {
+
+    /**
+     * Uses one &lt;code&gt;Liquid&lt;/code&gt;.
+     */
+    protected Liquid liquid;
+
+    /**
+     * Sugar is optional.
+     */
+    protected Boolean sugar;
+
+    /**
+     * Milk is optional.
+     */
+    protected Boolean milk;
+
+
+    /**
+     * Creates a &lt;code&gt;Tea&lt;/code&gt; object with given name, &lt;code&gt;Liquid&lt;/code&gt; and sugar.
+     *
+     * @param name   name of &lt;code&gt;Liquid&lt;/code&gt;
+     * @param liquid only one liquid (maybe water) in drink, because it's a tea
+     * @param sugar  tells if the &lt;code&gt;Tea&lt;/code&gt; is with or without sugar
+     * @param milk   tells if the &lt;code&gt;Tea&lt;/code&gt; is with or without milk
+     */
+    public Tea(String name, Liquid liquid, Boolean sugar, Boolean milk) {
+<span class="fc" id="L42">        super(name);</span>
+<span class="fc" id="L43">        this.liquid = liquid;</span>
+<span class="fc" id="L44">        this.sugar = sugar;</span>
+<span class="fc" id="L45">        this.milk = milk;</span>
+<span class="fc" id="L46">    }</span>
+
+    /**
+     * Tells if the &lt;code&gt;Tea&lt;/code&gt; has milk or not.
+     *
+     * @return true, if there is milk in the &lt;code&gt;Tea&lt;/code&gt;
+     */
+    public boolean getMilk() {
+<span class="fc" id="L54">        return sugar;</span>
+    }
+
+    /**
+     * Tells if the &lt;code&gt;Tea&lt;/code&gt; has sugar or not.
+     *
+     * @return true, if there is sugar in the &lt;code&gt;Tea&lt;/code&gt;
+     */
+    public boolean getSugar() {
+<span class="fc" id="L63">        return sugar;</span>
+    }
+
+    /**
+     * Returns volume of &lt;code&gt;Liquid&lt;/code&gt;.
+     *
+     * @return the volume of drink in litre
+     */
+    @Override
+    public double getVolume() {
+<span class="fc" id="L73">        return liquid.getVolume();</span>
+    }
+
+    /**
+     * Calculates and returns the alcohol percentage.
+     *
+     * @return alcohol volume percent (e.g. 50)
+     */
+    @Override
+    public double getAlcoholPercent() {
+<span class="fc" id="L83">        return liquid.getAlcoholPercent();</span>
+    }
+
+    /**
+     * Gives information if &lt;code&gt;Drink&lt;/code&gt; is alcoholic or not.
+     *
+     * @return true when alcoholic &lt;code&gt;Liquid&lt;/code&gt;s are present, otherwise false
+     */
+    @Override
+    public boolean isAlcoholic() {
+<span class="fc" id="L93">        return false;</span>
+    }
+
+    /**
+     * Formatted output for a &lt;code&gt;Tea&lt;/code&gt;.
+     *
+     * @return the String representation of the object
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L103">        String text = &quot;This tea is from sort &quot; + name + &quot; with&quot;;</span>
+<span class="fc bfc" id="L104" title="All 4 branches covered.">        if (sugar &amp;&amp; milk) {</span>
+<span class="fc" id="L105">            text += &quot; sugar and milk&quot;;</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">        } else if (sugar) {</span>
+<span class="fc" id="L107">            text += &quot; sugar&quot;;</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        } else if (milk) {</span>
+<span class="fc" id="L109">            text += &quot; milk&quot;;</span>
+        } else {
+<span class="fc" id="L111">            text += &quot;out milk or sugar&quot;;</span>
+        }
+<span class="fc" id="L113">        return text;</span>
+    }
+
+    /**
+     * Calculates the price of the &lt;code&gt;Drink&lt;/code&gt;,
+     * based on its ingredients and specialities.
+     *
+     * @return the calculated price of a specific &lt;code&gt;Drink&lt;/code&gt;
+     */
+    @Override
+    public double calculatePrice() {
+<span class="fc bfc" id="L124" title="All 4 branches covered.">        double multiplier = 1 + (sugar ? 1 : 0) + (milk ? 1 : 0);</span>
+<span class="fc" id="L125">        return getVolume() * (1.0 + (getAlcoholPercent() / 100.0)) * multiplier;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
